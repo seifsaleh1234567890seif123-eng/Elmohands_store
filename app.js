@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const startAutoSlide = () => {
     stopAutoSlide();
-    sliderInterval = setInterval(nextSlide, 2000); // Fast 2.0s rotation
+    sliderInterval = setInterval(nextSlide, 3500); // Fluid 3.5s rotation
   };
 
   const stopAutoSlide = () => {
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   startAutoSlide();
 
   // --------------------------------------------------------------------------
-  // 3. 3D SCROLL REVEAL OBSERVER FOR HTML GAME CARDS
+  // 3. FAST GPU SCROLL REVEAL OBSERVER (Unobserve on reveal for zero overhead)
   // --------------------------------------------------------------------------
   let observer = null;
 
@@ -157,14 +157,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (observer) observer.disconnect();
 
       observer = new IntersectionObserver(
-        (entries) => {
+        (entries, obs) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('revealed');
+              obs.unobserve(entry.target); // Unobserve once revealed for max performance
             }
           });
         },
-        { threshold: 0.12 }
+        { rootMargin: '0px 0px -30px 0px', threshold: 0.08 }
       );
 
       revealElements.forEach((el) => observer.observe(el));
@@ -175,13 +176,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   triggerScrollReveal();
 
-  // Sticky Navbar
+  // Sticky Navbar with requestAnimationFrame & passive listener
   const header = document.getElementById('navbar-header');
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 40) {
+          header?.classList.add('scrolled');
+        } else {
+          header?.classList.remove('scrolled');
+        }
+        ticking = false;
+      });
+      ticking = true;
     }
-  });
+  }, { passive: true });
 });
