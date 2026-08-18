@@ -59,16 +59,27 @@ html {
 body.gamer-theme {
   min-height: 100vh;
   line-height: 1.6;
-  background: #07090f;
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(0, 240, 255, 0.15) 0px, transparent 45%),
-    radial-gradient(at 100% 10%, rgba(168, 85, 247, 0.18) 0px, transparent 45%),
-    radial-gradient(at 50% 100%, rgba(37, 211, 102, 0.1) 0px, transparent 50%),
-    radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
-  background-attachment: fixed;
+  background-color: #07090f;
   overflow-x: hidden;
   position: relative;
+}
+
+/* HIGH-PERFORMANCE FIXED BACKGROUND LAYER (Smooth 60/120fps on Android) */
+body.gamer-theme::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #07090f;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(0, 240, 255, 0.12) 0px, transparent 45%),
+    radial-gradient(at 100% 10%, rgba(168, 85, 247, 0.15) 0px, transparent 45%),
+    radial-gradient(at 50% 100%, rgba(37, 211, 102, 0.08) 0px, transparent 50%),
+    radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.2px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* --------------------------------------------------------------------------
@@ -86,13 +97,13 @@ body.gamer-theme {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
   overflow: hidden;
 }
 
 .intro-splash.fade-out {
   opacity: 0;
-  transform: scale(1.05);
+  transform: scale(1.03);
   pointer-events: none;
 }
 
@@ -124,41 +135,52 @@ body.gamer-theme {
   font-size: clamp(1.6rem, 6.8vw, 5.2rem);
   font-weight: 900;
   color: #ffffff;
-  text-shadow: 0 0 25px var(--accent-cyan), 0 0 50px rgba(0, 240, 255, 0.8);
+  text-shadow: 0 0 20px var(--accent-cyan);
   display: inline-block;
   opacity: 0;
-  transform: translateY(-280px) scale(0.6);
-  animation: letterDropSolid 0.45s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
-  will-change: transform, opacity;
+  transform: translateY(-200px) scale(0.7);
+  animation: letterDropSolid 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
 }
 
 @keyframes letterDropSolid {
   0% {
     opacity: 0;
-    transform: translateY(-280px) scale(0.5);
+    transform: translateY(-200px) scale(0.7);
   }
   80% {
     opacity: 1;
-    transform: translateY(8px) scale(1.1);
+    transform: translateY(6px) scale(1.08);
   }
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
-    text-shadow: 0 0 25px var(--accent-cyan), 0 0 50px var(--accent-cyan);
+    text-shadow: 0 0 20px var(--accent-cyan);
   }
 }
 
-/* Ambient Glowing Orbs */
+/* Ambient Glowing Orbs - GPU Optimized via Radial Gradients instead of heavy filter:blur */
 .ambient-glow {
   position: fixed;
   border-radius: 50%;
-  filter: blur(120px);
   pointer-events: none;
-  z-index: 0;
-  opacity: 0.5;
+  z-index: -1;
+  opacity: 0.6;
+  transform: translateZ(0);
 }
-.orb-1 { width: 450px; height: 450px; background: rgba(0, 240, 255, 0.18); top: -100px; right: -100px; }
-.orb-2 { width: 500px; height: 500px; background: rgba(168, 85, 247, 0.18); bottom: -100px; left: -150px; }
+.orb-1 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.16) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+}
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, transparent 70%);
+  bottom: -100px;
+  left: -150px;
+}
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 10px; }
@@ -225,7 +247,27 @@ img { max-width: 100%; height: auto; display: block; }
   object-fit: cover;
   border: 3px solid var(--accent-cyan);
   box-shadow: 0 0 25px rgba(0, 240, 255, 0.7), 0 0 45px rgba(168, 85, 247, 0.4);
+  animation: logoGamerPulse 3.5s ease-in-out infinite alternate;
   transition: var(--transition-bounce);
+  transform: translateZ(0);
+}
+
+@keyframes logoGamerPulse {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6), 0 0 35px rgba(168, 85, 247, 0.3);
+    border-color: var(--accent-cyan);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 50px rgba(0, 240, 255, 0.5);
+    border-color: var(--accent-purple);
+    transform: scale(1.03) rotate(2deg);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.9), 0 0 55px rgba(0, 240, 255, 0.6);
+    border-color: var(--accent-cyan);
+    transform: scale(1) rotate(-1deg);
+  }
 }
 
 .brand-logo-clean:hover .nav-brand-img {
@@ -304,7 +346,7 @@ img { max-width: 100%; height: auto; display: block; }
   visibility: visible;
 }
 
-/* 100% FULL IMAGE SHOWN - ZERO CROPPING FROM ANY SIDE (تبان كلها بالكامل) */
+/* 100% FULL IMAGE SHOWN - ZERO CROPPING FROM ANY SIDE WITH CINEMATIC ZOOM ANIMATION */
 .slide-bg {
   position: absolute;
   inset: 0;
@@ -315,6 +357,20 @@ img { max-width: 100%; height: auto; display: block; }
   background-position: center center;
   filter: none !important;
   z-index: 1;
+  transform: translateZ(0);
+}
+
+.slide.active .slide-bg {
+  animation: heroKenBurns 3.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes heroKenBurns {
+  0% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .slide-content {
@@ -460,49 +516,88 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .featured-card {
-  background: var(--bg-card);
+  background: #101625;
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  backdrop-filter: blur(12px);
-  transition: var(--transition-bounce);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   display: flex;
   flex-direction: column;
-  content-visibility: auto; /* EXTREME SPEED OPTIMIZATION: BROWSER SKIPS RENDERING OFFSCREEN CARDS UNTIL SCROLLED */
-  contain-intrinsic-size: 1px 360px;
+  transform: translateZ(0);
 }
 
-.featured-card:hover {
-  transform: translateY(-12px) scale(1.03) rotateZ(-0.5deg);
+.featured-card:hover,
+.featured-card:active {
+  transform: translateY(-8px);
   background: var(--bg-card-hover);
   border-color: var(--accent-cyan);
-  box-shadow: 0 15px 35px rgba(0, 240, 255, 0.35), var(--glow-cyan);
+  box-shadow: 0 12px 30px rgba(0, 240, 255, 0.3), 0 0 15px rgba(0, 240, 255, 0.2);
 }
 
-/* SKELETON SHIMMER PLACEHOLDER FOR INSTANT FLUID IMAGE LOADING */
+/* GAMING CARD IMAGE WRAPPER WITH GLEAM LIGHT REFLECTION */
 .card-image-wrap {
   position: relative;
   aspect-ratio: 3/4;
   overflow: hidden;
-  background: linear-gradient(90deg, #0d121f 25%, #1a2338 50%, #0d121f 75%);
-  background-size: 200% 100%;
-  animation: skeletonShimmer 1.5s infinite;
+  background-color: #0c101a;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.15);
 }
 
-@keyframes skeletonShimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
+/* SMOOTH IMAGE ANIMATION (Entrance zoom-in + Hover pulse) */
 .card-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease, opacity 0.4s ease;
+  transform: scale(1.15);
+  filter: brightness(0.85);
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.75s ease;
   will-change: transform;
 }
 
-.featured-card:hover .card-image-wrap img { transform: scale(1.1); }
+/* Entrance animation when card scrolls into view */
+.scroll-reveal.revealed .card-image-wrap img {
+  transform: scale(1);
+  filter: brightness(1);
+}
+
+/* Dynamic Hover / Touch Zoom Animation */
+.featured-card:hover .card-image-wrap img,
+.featured-card:active .card-image-wrap img {
+  transform: scale(1.08) rotate(-0.5deg);
+  filter: brightness(1.12);
+}
+
+/* Shiny Neon Gleam Beam Animation across Game Covers */
+.card-image-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 45%,
+    rgba(0, 240, 255, 0.35) 60%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.8s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.scroll-reveal.revealed .card-image-wrap::after {
+  left: 160%;
+  transition: left 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.featured-card:hover .card-image-wrap::after,
+.featured-card:active .card-image-wrap::after {
+  left: 160%;
+  transition: left 0.6s ease;
+}
 
 .card-badge {
   position: absolute;
@@ -549,7 +644,7 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 8px;
   width: 100%;
   box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-  transition: var(--transition-bounce);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .btn-whatsapp:hover {
@@ -559,32 +654,35 @@ img { max-width: 100%; height: auto; display: block; }
 
 .btn-block { width: 100%; }
 
-/* ULTRA SMOOTH 3D SCROLL REVEAL ENTRANCE ANIMATION FOR CARDS */
+/* HARDWARE-ACCELERATED DYNAMIC SCROLL REVEAL (60/120 FPS FLUID) */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(80px) rotateX(18deg) scale(0.88);
-  filter: blur(8px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform, filter;
+  transform: translateY(50px) scale(0.92);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .scroll-reveal.revealed {
   opacity: 1;
-  transform: translateY(0) rotateX(0deg) scale(1);
-  filter: blur(0);
+  transform: translateY(0) scale(1);
 }
 
-/* Staggered card entrance delays */
-.featured-grid .featured-card:nth-child(1), .catalog-grid .featured-card:nth-child(1) { transition-delay: 0.05s; }
-.featured-grid .featured-card:nth-child(2), .catalog-grid .featured-card:nth-child(2) { transition-delay: 0.14s; }
-.featured-grid .featured-card:nth-child(3), .catalog-grid .featured-card:nth-child(3) { transition-delay: 0.23s; }
-.featured-grid .featured-card:nth-child(4), .catalog-grid .featured-card:nth-child(4) { transition-delay: 0.32s; }
-.catalog-grid .featured-card:nth-child(5) { transition-delay: 0.10s; }
-.catalog-grid .featured-card:nth-child(6) { transition-delay: 0.19s; }
-.catalog-grid .featured-card:nth-child(7) { transition-delay: 0.28s; }
-.catalog-grid .featured-card:nth-child(8) { transition-delay: 0.37s; }
+/* Staggered entrance animation delays */
+.featured-grid .featured-card:nth-child(2n),
+.catalog-grid .featured-card:nth-child(2n) {
+  transition-delay: 0.08s;
+}
+
+.featured-grid .featured-card:nth-child(3n),
+.catalog-grid .featured-card:nth-child(3n) {
+  transition-delay: 0.14s;
+}
+
+.featured-grid .featured-card:nth-child(4n),
+.catalog-grid .featured-card:nth-child(4n) {
+  transition-delay: 0.2s;
+}
 
 /* FOOTER */
 .site-footer {
