@@ -571,6 +571,8 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   flex-direction: column;
   transform: translateZ(0);
+  content-visibility: auto;
+  contain-intrinsic-size: 320px;
 }
 
 .featured-card:hover,
@@ -808,11 +810,31 @@ img { max-width: 100%; height: auto; display: block; }
   .slide-title { font-size: 2.2rem; }
 }
 
-/* MOBILE PHONES: STRICTLY DISPLAY 2 CARDS SIDE-BY-SIDE ON PHONE SCREENS */
+/* MOBILE PHONES: STRICTLY DISPLAY 2 CARDS SIDE-BY-SIDE ON PHONE SCREENS + ULTRA FAST ANDROID PERFORMANCE */
 @media (max-width: 768px) {
-  .navbar-header, .navbar-header.scrolled {
-    padding: 8px 0;
+  /* 1. Disable heavy full-screen GPU blur/gradients on mobile for 60/120fps */
+  .ambient-glow {
+    display: none !important;
   }
+
+  /* 2. Zero-lag solid headers & controls instead of expensive backdrop blur */
+  .navbar-header, 
+  .navbar-header.scrolled {
+    padding: 8px 0;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: #07090f !important;
+  }
+
+  .nav-admin-btn,
+  .slider-arrow,
+  .slider-indicators,
+  .admin-topbar,
+  .gamer-modal-backdrop {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
   .brand-logo-clean {
     gap: 10px;
   }
@@ -820,19 +842,37 @@ img { max-width: 100%; height: auto; display: block; }
     width: 48px;
     height: 48px;
     border-width: 2px;
+    animation: none !important; /* Save battery & CPU on phones */
   }
   .en-name-bold {
     font-size: 1.3rem;
     letter-spacing: 2px;
   }
   .hero-gamer-section {
-    margin-top: 80px;
+    margin-top: 76px;
     padding: 0;
   }
   .featured-grid, .catalog-grid {
     grid-template-columns: repeat(2, 1fr) !important; /* 2 CARDS SIDE BY SIDE */
-    gap: 12px !important;
+    gap: 10px !important;
   }
+
+  /* 3. Disable heavy image animations on mobile scroll */
+  .card-image-wrap::after {
+    display: none !important; /* Disable heavy reflection sweep on phones */
+  }
+
+  .card-image-wrap img {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+    will-change: auto !important;
+  }
+
+  .slide.active .slide-bg {
+    animation: none !important; /* Instant fluid slide transition on Android */
+  }
+
   .hero-slider-container {
     width: 100% !important;
     margin: 0 !important;
@@ -845,16 +885,22 @@ img { max-width: 100%; height: auto; display: block; }
     width: 36px;
     height: 36px;
     font-size: 0.95rem;
+    background: rgba(7, 9, 15, 0.9);
   }
   .slider-arrow.prev { right: 8px; }
   .slider-arrow.next { left: 8px; }
-  .slider-indicators { bottom: 10px; gap: 6px; padding: 5px 10px; }
+  .slider-indicators { 
+    bottom: 10px; 
+    gap: 6px; 
+    padding: 5px 10px; 
+    background: rgba(7, 9, 15, 0.9);
+  }
   .indicator { width: 7px; height: 7px; }
   .indicator.active { width: 20px; }
   .footer-grid-clean { grid-template-columns: 1fr; }
-  .card-content { padding: 12px; }
-  .card-title { font-size: 0.95rem; margin-bottom: 8px; }
-  .btn-whatsapp { font-size: 0.8rem; padding: 8px 10px; }
+  .card-content { padding: 10px; }
+  .card-title { font-size: 0.88rem; margin-bottom: 6px; }
+  .btn-whatsapp { font-size: 0.78rem; padding: 7px 8px; }
 }
 
 @media (max-width: 480px) {
@@ -870,19 +916,14 @@ img { max-width: 100%; height: auto; display: block; }
     letter-spacing: 1px;
   }
   .hero-gamer-section {
-    margin-top: 68px;
+    margin-top: 66px;
   }
   .featured-grid, .catalog-grid {
-    grid-template-columns: repeat(2, 1fr) !important; /* 2 CARDS SIDE BY SIDE ON MOBILE */
-    gap: 10px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
   }
   .hero-slider-container {
-    width: 100% !important;
-    margin: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    height: 185px !important;
-    border-radius: 0 !important;
+    height: 180px !important;
   }
   .slider-arrow {
     width: 32px;
@@ -899,41 +940,45 @@ img { max-width: 100%; height: auto; display: block; }
    ADMIN MODE & CONTROL SYSTEM STYLES
    ========================================================================== */
 
-/* 1. ADMIN TOP BAR */
+/* 1. ADMIN TOP BAR - NATURAL PAGE FLOW (ZERO OVERLAP, NEVER SCROLLS DOWN WITH USER) */
 .admin-topbar {
-  position: fixed;
-  top: 112px;
-  right: 0;
-  left: 0;
-  z-index: 990;
-  background: rgba(10, 14, 24, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  margin-top: 115px; /* Sits naturally right below the fixed navbar on desktop */
+  margin-bottom: 20px;
+  z-index: 10;
+  background: #0b101d;
   border-bottom: 2px solid var(--accent-gold);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 183, 3, 0.2);
-  padding: 10px 0;
-  animation: slideDownAdmin 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes slideDownAdmin {
-  from {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  border-top: 1px solid rgba(255, 183, 3, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  padding: 12px 0;
 }
 
 body.admin-mode-active .hero-gamer-section {
-  margin-top: 175px;
-  transition: margin-top 0.3s ease;
+  margin-top: 0 !important; /* Flows cleanly under the admin bar without any gap or overlap */
+  padding-top: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .admin-topbar {
+    margin-top: 95px;
+    margin-bottom: 16px;
+    padding: 10px 0;
+  }
 }
 
 @media (max-width: 768px) {
-  body.admin-mode-active .hero-gamer-section {
-    margin-top: 135px;
+  .admin-topbar {
+    margin-top: 76px;
+    margin-bottom: 14px;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-topbar {
+    margin-top: 66px;
+    margin-bottom: 12px;
+    padding: 8px 0;
   }
 }
 
@@ -1533,10 +1578,6 @@ body.admin-mode-active .hero-gamer-section {
 
 /* Responsive adjust for Admin Bar */
 @media (max-width: 768px) {
-  .admin-topbar {
-    top: 76px;
-    padding: 8px 0;
-  }
   .admin-topbar-container {
     justify-content: center;
     text-align: center;
