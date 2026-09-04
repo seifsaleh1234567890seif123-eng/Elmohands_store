@@ -34,13 +34,46 @@
 
   <!-- ==================== 3. NAVBAR HEADER ==================== -->
   <header class="navbar-header" id="navbar-header">
-    <div class="container navbar-container navbar-centered">
+    <div class="container navbar-container">
+      <div class="navbar-side-spacer"></div>
+      
       <a href="#" class="brand-logo-clean">
         <img src="assets/images/nav_logo.jpg" alt="ELMOHANDS Logo" class="nav-brand-img" />
         <span class="en-name-bold">ELMOHANDS</span>
       </a>
+
+      <div class="navbar-admin-wrap">
+        <button id="admin-login-btn" class="nav-admin-btn" title="دخول الإدارة">
+          <i class="fa-solid fa-user-shield"></i>
+          <span class="admin-btn-text">الإدارة</span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- ==================== ADMIN TOP CONTROL BAR (Visible in Admin Mode) ==================== -->
+  <div id="admin-topbar" class="admin-topbar" style="display: none;">
+    <div class="container admin-topbar-container">
+      <div class="admin-badge">
+        <span class="pulse-dot"></span>
+        <i class="fa-solid fa-crown"></i> وضع الإدمن مفعل
+      </div>
+      <div class="admin-actions">
+        <button id="btn-add-game-top" class="admin-bar-btn btn-primary-neon">
+          <i class="fa-solid fa-plus"></i> إضافة لعبة جديدة
+        </button>
+        <button id="btn-change-password-top" class="admin-bar-btn btn-secondary-neon">
+          <i class="fa-solid fa-key"></i> تغيير الباسورد
+        </button>
+        <button id="btn-reset-games-top" class="admin-bar-btn btn-outline-danger" title="استعادة قائمة الألعاب الافتراضية">
+          <i class="fa-solid fa-rotate-left"></i> استعادة الافتراضي
+        </button>
+        <button id="btn-admin-logout" class="admin-bar-btn btn-logout-neon">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> خروج
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ==================== 4. HERO SLIDER SECTION ==================== -->
   <section id="hero-section" class="hero-gamer-section">
@@ -96,73 +129,9 @@
         <p class="section-subtitle">أحدث وأقوى الألعاب الأكثر طلباً في ELMOHANDS</p>
       </div>
 
-      <!-- Featured Games Grid -->
-      <div class="featured-grid">
-        
-        <!-- Game Card 1: Fc27 Standard Edition -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Fc27 Standard Edition.jpeg" alt="Marvel's Spider-Man 2" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">كوره</div> -->
-            <h3 class="card-title">Fc27 Standard Edition</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Marvel%27s%20Spider-Man%202" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game Card 2: Fc27 Ultimate Edition -->
-        <div class="featured-card scroll-reveal glow-gold">
-          <div class="card-image-wrap">
-            <img src="Fc27 Ultimate Edition.jpeg" alt="Fc27 Ultimate Edition" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">كوره</div> -->
-            <h3 class="card-title">Fc27 Ultimate Edition</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20God%20of%20War%20Ragnarok" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game Card 3: Fc27 Ultimate plus Edition -->
-        <div class="featured-card scroll-reveal glow-sports">
-          <div class="card-image-wrap">
-            <img src="Fc27 Ultimate plus Edition.jpeg" alt="Fc27 Ultimate plus Edition" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">رياضة • منافسة</div> -->
-            <h3 class="card-title">Fc27 Ultimate plus Edition</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20EA%20Sports%20FC%2025" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game Card 4: GTA 6 -->
-        <div class="featured-card scroll-reveal glow-purple">
-          <div class="card-image-wrap">
-            <img src="GTA 6.jpeg" alt="Black Myth Wukong" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">أكشن RPG</div> -->
-            <h3 class="card-title">GTA 6</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Black%20Myth%20Wukong" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
+      <!-- Featured Games Grid (Populated dynamically by JS) -->
+      <div class="featured-grid" id="featured-grid">
+        <!-- Rendered by JS -->
       </div>
 
     </div>
@@ -179,677 +148,9 @@
         <p class="section-subtitle">تصفح المكتبة الشاملة لأقوى الألعاب العالمية</p>
       </div>
 
-      <!-- Games Catalog Grid -->
+      <!-- Games Catalog Grid (Populated dynamically by JS) -->
       <div class="catalog-grid" id="catalog-grid">
-        
-        <!-- Game 1: GTA -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="gta.jpeg" alt="Grand Theft Auto " loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">gta</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game 2: EA Sports FC 26 -->
-        <div class="featured-card scroll-reveal glow-sports">
-          <div class="card-image-wrap">
-            <img src="Fc26.jpeg" alt="EA Sports FC 26" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">رياضة • منافسة</div> -->
-            <h3 class="card-title">EA Sports FC26</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20EA%20Sports%20FC%2025" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game 3: Assassin's Creed Valhalla.jpeg -->
-        <div class="featured-card scroll-reveal glow-purple">
-          <div class="card-image-wrap">
-            <img src="Assassin's Creed Valhalla.jpeg" alt="Assassin's Creed Valhalla.jpeg" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">أكشن RPG</div> -->
-            <h3 class="card-title">Assassin's Creed Valhalla.jpeg</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Black%20Myth%20Wukong" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game 4: Assassin's Creed Mirage -->
-        <div class="featured-card scroll-reveal glow-gold">
-          <div class="card-image-wrap">
-            <img src="Assassin's Creed Mirage.jpeg" alt="Assassin's Creed Mirage" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">RPG • خيال مظلم</div> -->
-            <h3 class="card-title">Assassin's Creed Mirage</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Elden%20Ring%20Erdtree" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game 5: Away Out -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Away Out.jpeg" alt="Away Out" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">أكشن • مغامرات</div> -->
-            <h3 class="card-title">Away Out</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Marvel%27s%20Spider-Man%202" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game 6: Back4Blood -->
-        <div class="featured-card scroll-reveal glow-gold">
-          <div class="card-image-wrap">
-            <img src="Back4Blood.jpeg" alt="Back4Blood" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">مغامرة • أساطير</div> -->
-            <h3 class="card-title">Back4Blood</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20God%20of%20War%20Ragnarok" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game 7: Call of duty black ops3 -->
-        <div class="featured-card scroll-reveal glow-purple">
-          <div class="card-image-wrap">
-            <img src="Call of duty black ops3.jpeg" alt="Call of duty black ops3" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • سايبربانك</div> -->
-            <h3 class="card-title">Call of duty black ops3</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Cyberpunk%202077" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game 8: Call of duty vanguard.jpeg -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Call of duty vanguard.jpeg" alt="Call of duty vanguard.jpeg" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">أكشن • تصويب</div> -->
-            <h3 class="card-title">Call of duty vanguard.jpeg</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Call%20of%20Duty%20Black%20Ops%206" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 9: ctr -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="ctr.jpeg" alt="ctr" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">ctr</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 10: Crash Bandicoot TM  -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Crash Bandicoot TM - Quadrilogy Bundle.jpeg" alt="Crash Bandicoot TM " loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Crash Bandicoot TM </h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 11: Crach Rumble -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Crach Rumble.jpeg" alt="Crach Rumble" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Crach Rumble</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 12: CyberPunk 2077 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="CyberPunk 2077.jpeg" alt="CyberPunk 2077" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">CyberPunk 2077</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 13: Days Gone -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Days Gone.jpeg" alt="Days Gone" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Days Gone</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 14: Dirt5 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Dirt5.jpeg" alt="Dirt5" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Dirt5</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Ghost of tsushima -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Ghost of tsushima.jpeg" alt="Ghost of tsushima" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Ghost of tsushima</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 16: Hogwarts Legacy -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Hogwarts Legacy.jpeg" alt="Hogwarts Legacy" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Hogwarts Legacy</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 17: God of War -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="God of War.jpeg" alt="God of War" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">God of War</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 18: God of War Ragnarok -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="God of War Ragnarok.jpeg" alt="God of War Ragnarok" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">God of War Ragnarok</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 19: It Takes Two -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="It Takes Two.jpeg" alt="It Takes Two" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">It Takes Two</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 20: Unravel Two -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Unravel Two.jpeg" alt="Unravel Two" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Unravel Two</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 21: Mortal Kombat 11 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Mortal Kombat 11.jpeg" alt="Mortal Kombat 11" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Mortal Kombat 11</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 22: Mortal Kombat1 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Mortal Kombat1.jpeg" alt="Mortal Kombat1" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Mortal Kombat1</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 23: Need For Speed heat -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="NFS Heat.jpeg" alt="Need For Speed heat" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Need For Speed heat</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 24: Need For Speed Payback -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Need For Speed Payback.jpeg" alt="Need For Speed Payback" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Need For Speed Payback</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 25: Need For Speed Unbound -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="NFS Unbound.jpeg" alt="Need For Speed Unbound" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Need For Speed Unbound</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 26: Overcooked2 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Overcooked2.jpeg" alt="Overcooked2" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Overcooked2 and Overcooked1</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 27: Red Dead Redemption2 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Red Dead Redemption2.jpeg" alt="Red Dead Redemption2" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Red Dead Redemption2</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 28: Ratchet and clank -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Ratchet and clank.jpeg" alt="Ratchet and clank" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Ratchet and clank</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 29: Resident Evll4 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Resident Evll4.jpeg" alt="Resident Evll4" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Resident Evll4</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 30: Resident Evll7 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Resident Evll7.jpeg" alt="Resident Evll7" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Resident Evll7</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 31:Spider man marvel -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Spider man marvel.jpeg" alt="Spider man marvel" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Spider man marvel</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 32: Spider man miles -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Spider man miles.jpeg" alt="Spider man miles" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Spider man miles</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 33: spider man2 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="spider man2.jpeg" alt="spider man2" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">spider man2</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 34: Tekken7 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Tekken7.jpeg" alt="Tekken7" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Tekken7</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 35: The Crew Motorfest -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="The Crew Motorfest.jpeg" alt="The Crew Motorfest" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">The Crew Motorfest</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 36: WWE25 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="WWE25.jpeg" alt="WWE25" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">WWE25</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 37: Watch dogs Legion -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Watch dogs Legion.jpeg" alt="Watch dogs Legion" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Watch dogs Legion</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 38: Watch dogs2 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Watch dogs2.jpeg" alt="Watch dogs2" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Watch dogs2</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 39: The last of us 1 Remastered -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="The last of us 1 Remastered.jpeg" alt="The last of us 1 Remastered" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">The last of us 1 </h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 40: The last of us Part 2 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="The last of us Part 2.jpeg" alt="The last of us Part 2" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">The last of us Part 2</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 41: uncharted 4 a thief's end -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="uncharted 4 a thief's end.jpeg" alt="uncharted 4 a thief's end" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">uncharted 4 </h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 42: Unchartted Collection -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Unchartted Collection.jpeg" alt="Unchartted Collection" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Unchartted Collection</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 43: Unchartted The Lost Legacy -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Unchartted The Lost Legacy.jpeg" alt="Unchartted The Lost Legacy" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Unchartted The Lost Legacy</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Game 44 : The last of us Part 2 -->
-        <div class="featured-card scroll-reveal glow-cyan">
-          <div class="card-image-wrap">
-            <img src="Minecraft.jpeg" alt="Minecraft" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-content">
-            <!-- <div class="card-category">عالم مفتوح • أكشن</div> -->
-            <h3 class="card-title">Minecraft</h3>
-            <div class="card-footer-info">
-              <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%84%D8%B9%D8%A8%D8%A9:%20Grand%20Theft%20Auto%20VI" target="_blank" class="btn btn-whatsapp btn-block">
-                <i class="fa-brands fa-whatsapp"></i> الذهاب إلى الواتس
-              </a>
-            </div>
-          </div>
-        </div>
-
+        <!-- Rendered by JS -->
       </div>
 
     </div>
@@ -864,12 +165,12 @@
           <div class="brand-logo-clean">
             <span class="en-name-bold">ELMOHANDS</span>
           </div>
-          <p class="footer-desc">المتجر الأحدث والأقوى لشراء وتفعيل ألعاب االبلايستيشن  بأسعار تنافسية وتسليم فوري.</p>
+          <p class="footer-desc">المتجر الأحدث والأقوى لشراء وتفعيل ألعاب االبلايستيشن بأسعار تنافسية وتسليم فوري.</p>
           <div class="social-links">
-            <a href="https://www.facebook.com/share/1LygxuRk9D/" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/mohandes_store?igsh=M251YWF3bW0zaG5n&utm_source=qr" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/share/1LygxuRk9D/" target="_blank" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mohandes_store?igsh=M251YWF3bW0zaG5n&utm_source=qr" target="_blank" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20ELMOHANDS" target="_blank" class="social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
 
@@ -890,7 +191,173 @@
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- ==================== MODALS & DIALOGS ==================== -->
+
+  <!-- 1. Admin Login Modal -->
+  <div id="admin-login-modal" class="gamer-modal-backdrop" style="display: none;">
+    <div class="gamer-modal-box">
+      <button class="modal-close-btn" id="login-modal-close" aria-label="إغلاق">&times;</button>
+      <div class="modal-header">
+        <div class="modal-icon-glow"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3 class="modal-title">تسجيل دخول الإدارة</h3>
+        <p class="modal-subtitle">أدخل كلمة المرور لإدارة محتوى الموقع</p>
+      </div>
+      <form id="admin-login-form">
+        <div class="form-group">
+          <label for="admin-password-input">كلمة المرور:</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="admin-password-input" class="gamer-input" placeholder="اكتب كلمة المرور..." required autocomplete="current-password" />
+            <button type="button" id="toggle-password-visibility" class="toggle-pwd-btn" tabindex="-1" aria-label="إظهار أو إخفاء كلمة المرور">
+              <i class="fa-solid fa-eye" id="pwd-eye-icon"></i>
+            </button>
+          </div>
+          <div id="login-error-msg" class="form-error-msg" style="display: none;"></div>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary-neon btn-block"><i class="fa-solid fa-right-to-bracket"></i> دخول الإدارة</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Add / Edit Game Card Modal -->
+  <div id="admin-game-modal" class="gamer-modal-backdrop" style="display: none;">
+    <div class="gamer-modal-box modal-lg">
+      <button class="modal-close-btn" id="game-modal-close" aria-label="إغلاق">&times;</button>
+      <div class="modal-header">
+        <div class="modal-icon-glow"><i class="fa-solid fa-gamepad"></i></div>
+        <h3 class="modal-title" id="game-modal-title">إضافة كارد لعبة جديد</h3>
+        <p class="modal-subtitle">أدخل بيانات الكارد لإضافته مباشرة في المتجر</p>
+      </div>
+      <form id="admin-game-form">
+        <input type="hidden" id="edit-game-id" value="" />
+        
+        <div class="form-group">
+          <label for="game-title-input">اسم اللعبة: <span class="required-star">*</span></label>
+          <input type="text" id="game-title-input" class="gamer-input" placeholder="مثال: GTA 6 أو Spider-Man 2" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="game-section-input">مكان العرض في الموقع:</label>
+            <select id="game-section-input" class="gamer-input gamer-select">
+              <option value="catalog">جميع الألعاب (الكتالوج العام)</option>
+              <option value="featured">الألعاب المميزة فقط</option>
+              <option value="both">كلاهما (المميزة والكتالوج)</option>
+            </select>
+          </div>
+          <div class="form-group flex-1">
+            <label for="game-glow-input">لون التوهج (Glow Theme):</label>
+            <select id="game-glow-input" class="gamer-input gamer-select">
+              <option value="glow-cyan">أزرق نيون (Cyan)</option>
+              <option value="glow-purple">بنفسجي نيون (Purple)</option>
+              <option value="glow-gold">ذهبي (Gold)</option>
+              <option value="glow-sports">أخضر رياضي (Green)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>صورة اللعبة: <span class="required-star">*</span></label>
+          <div class="image-upload-wrap">
+            <div class="image-upload-zone" id="image-upload-zone">
+              <input type="file" id="game-image-file" accept="image/*" class="file-input-hidden" />
+              <label for="game-image-file" class="file-upload-label">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <span class="upload-title">اضغط لاختيار صورة من جهازك / موبايلك</span>
+                <span class="upload-hint">(PNG, JPG, JPEG, WEBP)</span>
+              </label>
+            </div>
+            <div class="image-or-divider"><span>أو اكتب اسم الملف / الرابط</span></div>
+            <input type="text" id="game-image-url" class="gamer-input" placeholder="مثال: gta.jpeg أو https://..." />
+          </div>
+
+          <!-- Preview -->
+          <div id="image-preview-container" class="image-preview-container" style="display: none;">
+            <span class="preview-label"><i class="fa-solid fa-eye"></i> معاينة الصورة المختارة:</span>
+            <div class="preview-box">
+              <img id="image-preview-img" src="" alt="معاينة اللعبة" />
+              <button type="button" id="clear-image-btn" class="clear-img-btn" title="إزالة الصورة"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="game-whatsapp-url"><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> رابط الواتساب (WhatsApp Link):</label>
+          <input type="text" id="game-whatsapp-url" class="gamer-input" placeholder="مثال: https://wa.me/2010xxxxxxxx أو wa.me/... أو اتركه تلقائي" />
+          <small class="form-hint" style="display:block; margin-top:5px; color:#94a3b8; font-size:0.8rem;">
+            يمكنك وضع رابط الواتساب المباشر الخاص بك، أو تركه فارغاً وسيتم إنشاؤه تلقائياً لطلب اللعبة.
+          </small>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary-neon"><i class="fa-solid fa-floppy-disk"></i> حفظ الكارد</button>
+          <button type="button" class="btn btn-secondary-neon" id="cancel-game-btn">إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Change Password Modal -->
+  <div id="admin-password-modal" class="gamer-modal-backdrop" style="display: none;">
+    <div class="gamer-modal-box">
+      <button class="modal-close-btn" id="pwd-modal-close" aria-label="إغلاق">&times;</button>
+      <div class="modal-header">
+        <div class="modal-icon-glow"><i class="fa-solid fa-key"></i></div>
+        <h3 class="modal-title">تغيير كلمة مرور الأدمن</h3>
+        <p class="modal-subtitle">اختر كلمة مرور جديدة لحماية لوحة الإدارة</p>
+      </div>
+      <form id="admin-password-form">
+        <div class="form-group">
+          <label for="old-password-input">كلمة المرور الحالية:</label>
+          <input type="password" id="old-password-input" class="gamer-input" required />
+        </div>
+        <div class="form-group">
+          <label for="new-password-input">كلمة المرور الجديدة:</label>
+          <input type="password" id="new-password-input" class="gamer-input" minlength="4" required />
+        </div>
+        <div class="form-group">
+          <label for="confirm-new-password-input">تأكيد كلمة المرور الجديدة:</label>
+          <input type="password" id="confirm-new-password-input" class="gamer-input" minlength="4" required />
+          <div id="pwd-change-error" class="form-error-msg" style="display: none;"></div>
+          <div id="pwd-change-success" class="form-success-msg" style="display: none;"></div>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary-neon btn-block"><i class="fa-solid fa-check"></i> حفظ كلمة المرور</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Delete Confirmation Modal -->
+  <div id="admin-confirm-modal" class="gamer-modal-backdrop" style="display: none;">
+    <div class="gamer-modal-box modal-sm">
+      <div class="modal-header">
+        <div class="modal-icon-glow danger-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <h3 class="modal-title">تأكيد حذف الكارد</h3>
+        <p class="modal-subtitle" id="confirm-delete-text">هل أنت متأكد من رغبتك في حذف هذا الكارد؟</p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline-danger" id="btn-confirm-delete"><i class="fa-solid fa-trash"></i> نعم، حذف الآن</button>
+        <button type="button" class="btn btn-secondary-neon" id="btn-cancel-delete">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Alert -->
+  <div id="gamer-toast" class="gamer-toast" style="display: none;">
+    <div class="toast-content">
+      <i class="toast-icon fa-solid fa-circle-check" id="toast-icon"></i>
+      <span class="toast-msg" id="toast-msg">تمت العملية بنجاح</span>
+    </div>
+  </div>
+
+  <!-- Firebase Cloud SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+
+  <!-- JavaScript Engine -->
   <script src="app.js"></script>
 </body>
 </html>
